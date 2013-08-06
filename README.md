@@ -36,5 +36,7 @@ store user webGui preferences.
 #### How is the .txz file created?
 
 On the local server:
-`cd /usr/local/emhttp/plugins/webGui`
-`makepkg ../webGui-latest.txz`
+```
+cd /usr/local/emhttp/plugins/webGui
+makepkg ../webGui-latest.txz
+```
