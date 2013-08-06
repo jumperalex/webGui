@@ -12,8 +12,8 @@ plugin `.plg` files go and where plugin configuration files will be stored.
 
 Now 'wget' the two files:
 
-`wget https://github.com/limetech/webGui/blob/master/webGui-latest.plg`
-`wget https://github.com/limetech/webGui/blob/master/webGui-latest.txz`
+`wget https://github.com/limetech/webGui/raw/master/webGui-latest.plg`
+`wget https://github.com/limetech/webGui/raw/master/webGui-latest.txz`
 
 Then type:
 

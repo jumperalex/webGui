@@ -40,7 +40,7 @@ rm -f /tmp/plugin-tmp
 webGui itself in the form a of a slackware package
 -->
 <FILE Name="/boot/config/plugins/webGui-&version;.txz">
-<URL>https://github.com/limetech/webGui/blob/master/webGui-&version;.txz</URL>
+<URL>--no-check-certificate https://github.com/limetech/webGui/raw/master/webGui-&version;.txz</URL>
 </FILE>
 
 <!--
