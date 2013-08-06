@@ -10,18 +10,24 @@ be going away.
 Next, make sure you have a `/boot/config/plugins` directory.  This directory is where all the
 plugin `.plg` files go and where plugin configuration files will be stored.
 
-Now 'wget' the two files:
+Now type this:
 
-`wget https://github.com/limetech/webGui/raw/master/webGui-latest.plg`
-`wget https://github.com/limetech/webGui/raw/master/webGui-latest.txz`
-
-Then type:
-
-`installplg /boot/config/plugins/webGui-latest.plg`
-
-alternately, you could reboot the server.
+```
+cd /boot/config/plugins
+wget https://github.com/limetech/webGui/raw/master/webGui-latest.plg
+installplg webGui-latest.plg
+```
 
 Now open the server webGui in your browser.
+
+If you want to download a later version of -latest than what you already have, then delete the two files first:
+
+```
+cd /boot/config/plugins
+rm webGui-latest*
+wget https://github.com/limetech/webGui/raw/master/webGui-latest.plg
+installplg webGui-latest.plg
+```
 
 #### What is the plugin doing?
 
