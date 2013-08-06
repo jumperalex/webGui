@@ -1,0 +1,24 @@
+Cond="array_key_exists('cache',$disks)"
+Icon="icons/cache.png"
+Menu="Main:2"
+Title="Cache Device"
+---
+<?
+require_once "plugins/webGui/include/device_list.php";
+echo_cache_table();
+?>
+<? if ($var['fsState'] == "Stopped"): ?>
+
+> Here you configure which device to assign to the Cache disk using the drop down list.
+
+<? endif ?>
+
+> The Cache disk is a device *outside* the unRAID array.  It may be exported for network access just
+> like the Array disks.  Being outside the unRAID array results in significantly faster write access
+> at the cost of no data protection - if the Cache device fails all data contained on it may be lost.
+> 
+> When [User Shares](/Settings/ShareSettingsMenu) are enabled, user shares may be configured to
+> automatically make use of the Cache disk in order to
+> speed up writes.  A special background process called the *mover* can be scheduled to run
+> periodically to move user share files off the Cache disk and onto the Array.
+

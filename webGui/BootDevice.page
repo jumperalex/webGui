@@ -1,0 +1,14 @@
+Icon="icons/flash.png"
+Menu="Main:1"
+Title="Boot Device"
+---
+<?
+require_once "plugins/webGui/include/device_list.php";
+echo_flash_table();
+?>
+
+> Vital array configuration is maintained on the USB Flash device; for this reason, it must remain
+> plugged in to your server.  Click on [Flash](/Main/Flash?name=flash) to see the GUID and registration
+> information, and
+> to configure export settings.  Since the USB Flash devie is formatted using FAT file system, it
+> may only be exported using SMB protocol.

@@ -1,0 +1,45 @@
+Menu="Debug"
+Title="webGui Release Notes"
+---
+<form markdown="1" method="POST" action="/plugins/webGui/update.php" target="progressFrame">
+
+### Welcome to unRAID OS.
+
+Click the Help button on the right side of the Menu bar to display help for any page (though
+this is currently a work-in-process so some pages might have little/no help).
+
+> I see you clicked the Help button (or have Help configured to be visible).
+> You can also configure Help so it starts out visible
+> on the [Display Preferences](http://develop/Settings/Display) page.
+
+### webGui Changes
+
+r3
+
+* Changes to permit webGui to be updated like any other plugin.
+* Table zebra striping starts out non-white.
+* Various doc changes/additions.
+
+r2
+
+* Fix clunky "button" look of right-hand nav buttons.
+
+r1
+
+* Initial release.
+
+### Credits
+
+I want to personally thank [Andrew Hamer-Adams](http://www.pixeleyes.co.nz) for his contributions via
+his original *Simple Features* plugin.
+
+### Preference
+
+By default this page will be the first page displayed when opening the webGui following a server
+reboot.  This can be changed on the [Display Preferences](/Settings/Display) page, or by checking
+the following checkbox:
+
+<input type='checkbox' name='welcome' value='' onchange='this.form.submit()'>&nbsp;Do not display this again
+<input type="hidden" name="#plugin", value="webGui">
+<input type="hidden" name="#section" value="display">
+</form>

@@ -1,0 +1,3 @@
+Menu="Debug"
+Title="Release Notes"
+Type="plugins/webGui/scripts/pre cat /boot/readme.txt"

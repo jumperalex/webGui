@@ -1,0 +1,62 @@
+<?xml version='1.0' standalone='yes'?>
+
+<!DOCTYPE PLUGIN [
+<!ENTITY version "latest">
+]>
+
+<PLUGIN>
+<!--
+Pre-installation: wait for network
+-->
+<FILE Name="/tmp/plugin-tmp" Run="/bin/bash">
+<INLINE>
+# Wait until network is ready
+timer=30
+while [ $timer -gt 0 ]; do
+  gateway=$(route -n | awk '/^0.0.0.0/ {print $2}')
+  if [ -n "$gateway" ] &amp;&amp; ping -q -n -c 1 $gateway >/dev/null ; then
+    break
+  fi
+  timer=$((timer-1))
+  sleep 1
+done
+if [ $timer -eq 0 ]; then
+  echo "No network communication !!!"
+fi
+# Remove this script
+rm -f /tmp/plugin-tmp
+</INLINE>
+</FILE>
+
+<!-- required slack packages to be downloaded should come first -->
+
+<FILE Name="/boot/packages/dmidecode-2.10-i486-1.txz" Run="upgradepkg --install-new">
+<URL>http://slackware.cs.utah.edu/pub/slackware/slackware-13.1/slackware/ap/dmidecode-2.10-i486-1.txz</URL>
+</FILE>
+
+<!-- other files to be downloaded should come next -->
+
+<!--
+webGui itself in the form a of a slackware package
+-->
+<FILE Name="/boot/config/plugins/webGui-&version;.txz">
+<URL>http://download.lime-technology.com/dnld/webGui-&version;.txz</URL>
+</FILE>
+
+<!--
+gittyup
+-->
+<FILE Name="/tmp/plugin-tmp" Run="/bin/bash">
+<INLINE>
+# Zap the stock webGui
+rm -r /usr/local/emhttp/plugins/webGui
+# Install new webGui
+installpkg --root /usr/local/emhttp/plugins/webGui /boot/config/plugins/webGui-&version;.txz
+# Make sure our config directory exists
+mkdir -p /boot/config/plugins/webGui
+# Remove this script
+rm -f /tmp/plugin-tmp
+</INLINE>
+</FILE>
+
+</PLUGIN>
