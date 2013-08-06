@@ -2,7 +2,7 @@ Lime Technology unRAID OS System Management Utility, aka, webGui
 
 ### Installation
 
-Login to the command line on your server, e.g., from console or telnet session.
+Login to the command line on your server, e.g., at the console or a telnet session.
 
 First, empty the `/boot/plugins` directory or delete it entirely.  This is unneeded and will
 be going away.
@@ -23,7 +23,7 @@ alternately, you could reboot the server.
 
 Now open the server webGui in your browser.
 
-### What is the plugin doing?
+#### What is the plugin doing?
 
 When installed for the first time, `installplg webGui-latest.plg` will do this:
 
@@ -33,3 +33,8 @@ store user webGui preferences.
 * Delete the current webGui in `/usr/local/emhttp/plugins/webGui`
 * Extract the `webGui-latest.txz` package to `/usr/local/emhttp/plugins/webGui`
 
+#### How is the .txz file created?
+
+On the local server:
+`cd /usr/local/emhttp/plugins/webGui`
+`makepkg ../webGui-latest.txz`
