@@ -39,7 +39,7 @@ rm -f /tmp/plugin-tmp
 <!--
 webGui itself in the form a of a slackware package
 -->
-<FILE Name="/boot/config/plugins/webGui-&version;.txz">
+<FILE Name="/boot/plugins/webGui-&version;.txz">
 <URL>--no-check-certificate https://github.com/limetech/webGui/raw/master/webGui-&version;.txz</URL>
 </FILE>
 
@@ -51,7 +51,7 @@ gittyup
 # Zap the stock webGui
 rm -r /usr/local/emhttp/plugins/webGui
 # Install new webGui
-installpkg --root /usr/local/emhttp/plugins/webGui /boot/config/plugins/webGui-&version;.txz
+installpkg --root /usr/local/emhttp/plugins/webGui /boot/plugins/webGui-&version;.txz
 # Make sure our config directory exists
 mkdir -p /boot/config/plugins/webGui
 # Remove this script
