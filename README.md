@@ -42,7 +42,7 @@ Now type this:
 
 ```
 cd /boot/plugins
-wget https://github.com/limetech/webGui/raw/master/webGui-latest.plg
+wget --no-check-certificate https://github.com/limetech/webGui/raw/master/webGui-latest.plg
 installplg webGui-latest.plg
 ```
 
@@ -55,7 +55,7 @@ If you want to download a later version of -latest than what you already have, t
 ```
 cd /boot/plugins
 rm webGui-latest*
-wget https://github.com/limetech/webGui/raw/master/webGui-latest.plg
+wget --no-check-certificate https://github.com/limetech/webGui/raw/master/webGui-latest.plg
 installplg webGui-latest.plg
 ```
 
