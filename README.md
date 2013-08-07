@@ -1,29 +1,59 @@
 Lime Technology unRAID OS System Management Utility, aka, webGui
 
-### Installation
+### Overview
 
-Login to the command line on your server, e.g., at the console or a telnet session.
+In unRAID OS 5.0-rc the last sequence in system start up is as follows (from `/etc/rc.d/rc.local`):
 
-First, empty the `/boot/plugins` directory or delete it entirely.  This is unneeded and will
-be going away.
+1. Use `installpkg` to install all slackware packages which exist in `/boot/extra`.
+2. Use `installplg` to install all plugins which exist in `/boot/plugins`.
+3. Use `installplg` to install all plugins which exist in `/boot/config/plugins`.
+4. Invoke the `/boot/go` script.
 
-Next, make sure you have a `/boot/config/plugins` directory.  This directory is where all the
-plugin `.plg` files go and where plugin configuration files will be stored.
+Normally there should be nothing to install in either `/boot/extra` or `/boot/plugins`.
+
+All community-created plugins should be installed in:
+`/boot/config/plugins`
+
+Any slackware packages needed by the plugin should be referenced and downloaded to:
+`/boot/packages`
+
+    Note: for unRAID 5.0 these should be from Slackware version 13.1 unless you absolutely need the functionality
+    from a newer package.
+
+Any other files needed by the plugin should be downloaded to:
+`/boot/config/plugins/<plugin-name>`
+
+If a plugin requires a saved configuration file, it should exist in
+`/boot/config/plugins/<plugin-name>/<plugin-name>.cfg`
+
+### webGui Installation
+
+With that background, we are going to install the webGui plugin file in `/boot/plugins` in order to ensure that
+it gets installed first, since it's possible for subsequent plugins to alter or replace files of the webGui
+plugin.
+
+First, login to the command line on your server, e.g., at the console or a telnet session.
+
+Next, make sure you have a `/boot/plugins` directory.  If it already exists, **ensure that it's empty**.
+
+Next, make sure you have a `/boot/config/plugins` directory.
 
 Now type this:
 
 ```
-cd /boot/config/plugins
+cd /boot/plugins
 wget https://github.com/limetech/webGui/raw/master/webGui-latest.plg
 installplg webGui-latest.plg
 ```
 
 Now open the server webGui in your browser.
 
+### Re-install
+
 If you want to download a later version of -latest than what you already have, then delete the two files first:
 
 ```
-cd /boot/config/plugins
+cd /boot/plugins
 rm webGui-latest*
 wget https://github.com/limetech/webGui/raw/master/webGui-latest.plg
 installplg webGui-latest.plg
@@ -46,3 +76,6 @@ On the local server:
 cd /usr/local/emhttp/plugins/webGui
 makepkg ../webGui-latest.txz
 ```
+
+Note that unlike typical slackware packages, this package root is not `/`.  Looking at the `plg` you'll see that
+it's installed using `--root /usr/local/emhttp/plugins/webGui` option.
