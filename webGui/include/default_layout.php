@@ -11,32 +11,50 @@
 <?
 include "helpers.php";
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
-<head>
-<title><?=$var['NAME']?>/<?=$myPage['Name']?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = no">
-<link type="image/gif" rel="shortcut icon" href="/plugins/webGui/images/<?=$var['mdColor']?>.gif">
-<link type="text/css" rel="stylesheet" href="/plugins/webGui/css/default_layout.css">
-<link type="text/css" rel="stylesheet" href="/plugins/webGui/css/jquery.jgrowl.css">
-<link type="text/css" rel="stylesheet" href="/plugins/webGui/css/ui.dropdown.checklist.css">
-<link type="text/css" rel="stylesheet" href="/plugins/webGui/css/shadowbox.css">
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title><?=$var['NAME']?>/<?=$myPage['Name']?></title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="robots" content="noindex">
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
-<?if (!$display['icons']):?>
-<style>#title img.icon {display: none;}</style>
-<?endif;?>
+        <link rel="shortcut icon" href="/plugins/webGui/images/<?=$var['mdColor']?>.gif">
+        <!--
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/plugins/webGui/images/ico/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/plugins/webGui/images/ico/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/plugins/webGui/images/ico/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="/plugins/webGui/images/ico/apple-touch-icon-57x57-precomposed.png">
+        //-->
 
-<?if (!$display['help']):?>
-<style>blockquote {display: none;}</style>
-<?endif;?>
+        <link type="text/css" rel="stylesheet" href="/plugins/webGui/css/normalize.css">
+        <link type="text/css" rel="stylesheet" href="/plugins/webGui/css/default_layout.css">
+        <link type="text/css" rel="stylesheet" href="/plugins/webGui/css/jquery.jgrowl.css">
+        <link type="text/css" rel="stylesheet" href="/plugins/webGui/css/ui.dropdown.checklist.css">
+        <link type="text/css" rel="stylesheet" href="/plugins/webGui/css/shadowbox.css">
 
-<script type="text/javascript" src="/plugins/webGui/js/jquery.js"></script>
-<script type="text/javascript" src="/plugins/webGui/js/jquery.jgrowl.js"></script>
-<script type="text/javascript" src="/plugins/webGui/js/jquery.ui.custom.js"></script>
-<script type="text/javascript" src="/plugins/webGui/js/ui.dropdown.checklist.js"></script>
-<script type="text/javascript" src="/plugins/webGui/js/shadowbox.js"></script>
-<script>
+        <style type="text/css">
+        <!--
+        <?if (!$display['icons']):?>
+        #title img.icon {display: none;}
+        <?endif;?>
+
+        <?if (!$display['help']):?>
+        blockquote {display: none;}
+        <?endif;?>
+        //--> 
+        </style>
+
+        <script type="text/javascript" src="/plugins/webGui/js/jquery.js"></script>
+        <script type="text/javascript" src="/plugins/webGui/js/jquery.jgrowl.js"></script>
+        <script type="text/javascript" src="/plugins/webGui/js/jquery.ui.custom.js"></script>
+        <script type="text/javascript" src="/plugins/webGui/js/ui.dropdown.checklist.js"></script>
+        <script type="text/javascript" src="/plugins/webGui/js/shadowbox.js"></script>
+
+<script type="text/javascript" charset="utf-8">
 Shadowbox.init({
   handleOversize: "resize",
   displayNav: true,
@@ -87,6 +105,7 @@ for (var i=0,mobile; mobile=mobiles[i]; i++){
 }
 </script>
 </head>
+
 <body>
   <div id="template">
    <div id="header-container">
