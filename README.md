@@ -1,6 +1,6 @@
 Lime Technology unRAID OS System Management Utility, aka, webGui
 
-### Overview
+#### Overview
 
 In unRAID OS 5.0-rc the last sequence in system start up is as follows (from `/etc/rc.d/rc.local`):
 
@@ -11,14 +11,14 @@ In unRAID OS 5.0-rc the last sequence in system start up is as follows (from `/e
 
 Normally there should be nothing to install in either `/boot/extra` or `/boot/plugins`.
 
-All community-created plugins should be installed in:
+All community-created plugin `plg` files should be downloaded to:
 `/boot/config/plugins`
 
 Any slackware packages needed by the plugin should be referenced and downloaded to:
 `/boot/packages`
 
     Note: for unRAID 5.0 these should be from Slackware version 13.1 unless you absolutely need the functionality
-    from a newer package.
+    of a newer package.
 
 Any other files needed by the plugin should be downloaded to:
 `/boot/config/plugins/<plugin-name>`
@@ -26,7 +26,7 @@ Any other files needed by the plugin should be downloaded to:
 If a plugin requires a saved configuration file, it should exist in
 `/boot/config/plugins/<plugin-name>/<plugin-name>.cfg`
 
-### webGui Installation
+#### webGui Installation
 
 With that background, we are going to install the webGui plugin file in `/boot/plugins` in order to ensure that
 it gets installed first, since it's possible for subsequent plugins to alter or replace files of the webGui
@@ -48,7 +48,7 @@ installplg webGui-latest.plg
 
 Now open the server webGui in your browser.
 
-### Re-install
+#### Re-install
 
 If you want to download a later version of -latest than what you already have, then delete the two files first:
 
@@ -79,3 +79,14 @@ makepkg ../webGui-latest.txz
 
 Note that unlike typical slackware packages, this package root is not `/`.  Looking at the `plg` you'll see that
 it's installed using `--root /usr/local/emhttp/plugins/webGui` option.
+
+#### Summary of files locations
+
+* `/boot/extra` - contains "system" slackware packages
+* `/boot/plugins` - contains "system" plugins
+* `/boot/config/plugins` - contains "community-written" plugins
+* `/boot/packages` - contains slackware packages downloaded by plugins
+* `/boot/config/plugins/<plugin-name>` - directory for plugin <plugin-name> use
+* `/boot/config/plugins/<plugin-name>.cfg` - name and location of saved config data maintaned by plugin <plugin-name>
+* `/usr/local/emhttp/plugins/<plugin-name>` - runtime location of plugin <plugin-name> code
+* `/var/local/emhttp/plugins` - runtime location of plugin temp files
