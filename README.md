@@ -46,7 +46,7 @@ wget --no-check-certificate https://github.com/limetech/webGui/raw/master/webGui
 installplg webGui-latest.plg
 ```
 
-Now open the server webGui in your browser.
+If you have any other plugins installed, reboot your server; otherwise, just bring up the webGui in your browser.
 
 #### Re-install
 
